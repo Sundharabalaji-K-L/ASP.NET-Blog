@@ -6,5 +6,6 @@ public class MongoDBDatabaseSettings: IMongoDBDatabaseSettings
     public string DatabaseName { get; set; } = string.Empty;
     public string PostCollectionName { get; set; } = string.Empty;
     public string UserCollectionName { get; set; } = string.Empty;
+    public string CommentCollectionName { get; set; }
 }
 

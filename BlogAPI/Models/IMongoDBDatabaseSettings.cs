@@ -6,4 +6,5 @@ public interface IMongoDBDatabaseSettings
     string DatabaseName { get; set; }
     string PostCollectionName { get; set; }
     string UserCollectionName { get; set; }
+    string CommentCollectionName { get; set; }
 }

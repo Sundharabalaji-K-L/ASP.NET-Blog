@@ -10,9 +10,11 @@ namespace BlogAPI.Controllers;
 public class PostController: ControllerBase
 {
     private readonly IPostService _postService;
-    public PostController(IPostService postService)
+    private readonly ICommentService _commentService;
+    public PostController(IPostService postService, ICommentService commentService)
     {
         _postService = postService;
+        _commentService = commentService;   
     }
     
     // GET: api/post
@@ -93,6 +95,7 @@ public class PostController: ControllerBase
            return Unauthorized("You are not authorized to delete this post");
        }
        _postService.DeletePost(id);
+       _commentService.DeleteCommentByPostId(id);
        return Ok($"Post with id: {id} has been deleted");
    }
 }
