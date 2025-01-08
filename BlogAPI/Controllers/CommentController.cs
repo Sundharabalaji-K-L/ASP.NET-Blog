@@ -66,7 +66,7 @@ public class CommentController: ControllerBase
             ModifiedAt = DateTime.Now
         };
         _commentService.CreateComment(newComment);
-        return Ok(newComment);
+        return CreatedAtAction(nameof(GetComment), new { id = newComment.Id }, newComment);
     }
 
     [HttpPut("{id}"), Authorize]
@@ -108,6 +108,6 @@ public class CommentController: ControllerBase
         }
         
         _commentService.deleteComment(id);
-        return NoContent();
+        return Ok($"Comment with id: {id} has been deleted");
     }    
 }
